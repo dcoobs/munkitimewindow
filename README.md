@@ -10,7 +10,8 @@ MunkiTimeWindow.py can be set as a preflight script for either Munki (placed in 
 Note that munkireport-php will overwrite the Munki preflight script upon install so if you intend to use munkireport-php, it's recommended to install munkireport-php before Munki Time Window.
 
 ### Keys
-Munki Time Window has three preference keys  
+Munki Time Window has three preference keys:
+
 | Key | Type | Default | Description |
 | --- | -------- | ------- | ----------- |
 | TimeWindowStart | string | 1:00AM | Time at which Munki Time Window will begin allowing Munki to run |
