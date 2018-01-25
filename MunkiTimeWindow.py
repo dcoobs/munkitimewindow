@@ -20,21 +20,23 @@ munkitimewindow
 
 """
 This script is designed to work as a preflight script for Munki (in which case it needs to be renamed to preflight)
-or a preflight_abort.d script for MunkiReport. The script will get the current time, attempt to load the time window preferences
-from MCX/mobileconfig file, if that fails, it will try to load the preferences from /Library/Preferences/ManagedInstalls.plist.
-If there is an issue loading the preferences using either MCX or ManagedInstalls.plist, it uses 1am and 5am as the defaults.
+or as a preflight_abort.d script for MunkiReport. The script will get the current runtype passed from Munki, try to load the TimeWindowAllowManual
+variable from either an MCX profile or from /Library/Preferences/ManagedInstalls.plist. If the job is started by a user and TimeWindowAllowManual
+is set to True, the script will exit and allow Munki to continue. If there is an issue loading the TimeWindowAllowManual variable, it defaults to True.
+If the job is a scheduled run started automatically by Munki, the script will get the current time and attempt to load the time window preferences, again, from either a MCX profile or from
+/Library/Preferences/ManagedInstalls.plist. If there is an issue loading the preferences using either MCX or ManagedInstalls.plist, it uses 1am and 5am as the defaults.
 It will then check whether it is within the set time window. If it is not within the time window, it will abort the Munki run.
 """
 
 ### Set Munki preference file location & MCX bundle ID variables ###
 munki_prefs_location='/Library/Preferences/ManagedInstalls.plist'
-BUNDLE_ID = u'org.example.my.MunkiTimeWindow''
+BUNDLE_ID = u'edu.illinois.techservices.eps.MunkiTimeWindow'
 
 # Import modules
 import sys
+from Foundation import CFPreferencesCopyAppValue #used to read MCX preferences/settings
 import os
 from datetime import datetime #used for date & time functions
-from Foundation import CFPreferencesCopyAppValue #used to read MCX preferences/settings
 
 # Append the munkilib directory to the system path so we can import munkilib modules (FoundationPlist)
 thisdir = os.path.dirname(os.path.abspath(__file__))
@@ -46,6 +48,38 @@ from munkilib import FoundationPlist
 
 # Load Munki preferences file
 munki_prefs=FoundationPlist.readPlist('/Library/Preferences/ManagedInstalls.plist')
+
+#get runtype argument from Munki
+if (len(sys.argv) > 1):
+	runtype = sys.argv[1]
+else:
+	runtype = 'custom'
+	
+#Try to read TimeWindowAllowManual from MCX/mobileconfig
+try:
+	allowManualRun = CFPreferencesCopyAppValue('TimeWindowAllowManual', BUNDLE_ID)
+	if allowManualRun == None:
+		print "MunkiTimeWindow: No MCX/mobileconfig found for TimeWindowAllowManual"
+		allowManualRun = True
+# If there is any issue with loading TimeWindowAllowManual from MCX, try using values in ManagedInstalls.plist
+except:
+	try:
+		print "MunkiTimeWindow: Attempting to load preferences from ",munki_prefs_location
+		allowManualRun = managedInstallsTWManual()
+	except:
+# If all else fails, use default values (allow manual installs during time window)
+		print "MunkiTimeWindow: Unable to find Munki time window manual install preference"
+		print "MunkiTimeWindow: Using time window defaults (allow manual installs during time window)"
+		allowManualRun = True
+
+if allowManualRun:
+	if runtype != 'auto':
+		print "MunkiTimeWindow: Detected manual run. Allowing Munki to continue"
+   		sys.exit(0)
+   	else:
+   		print "MunkiTimeWindow: AllowManualRunOutsideTimeWindow: False"
+   		print "MunkiTimeWindow: Stopping Munki run"
+   		sys.exit(1)
 
 # Define isNowInTimeWindow function
 def isNowInTimeWindow(startTime, endTime, nowTime):
@@ -62,6 +96,10 @@ def managedInstallsTWStart():
 def managedInstallsTWEnd():	
 		twEnd=munki_prefs['TimeWindowEnd']
 		return twEnd
+
+def managedInstallsTWManual():	
+		twManual=munki_prefs['TimeWindowAllowManual']
+		return twManual
         
 # Get current time
 timeNow = datetime.now()
@@ -76,19 +114,19 @@ try:
 	timeStart = CFPreferencesCopyAppValue('TimeWindowStart', BUNDLE_ID)
 	timeEnd = CFPreferencesCopyAppValue('TimeWindowEnd', BUNDLE_ID)
 	if ((timeStart == None) or (timeEnd == None)):
-		print "No MCX/mobileconfig found"
+		print "MunkiTimeWindow: No MCX/mobileconfig found for TimeWindowStart or TimeWindowEnd"
 		timeStart = managedInstallsTWStart()
 		timeEnd = managedInstallsTWEnd()
 # If there is any issue with loading time window preferences from mcx, try using values in ManagedInstalls.plist
 except:
 	try:
-		print "Attempting to load preferences from ",munki_prefs_location
+		print "MunkiTimeWindow: Attempting to load preferences from ",munki_prefs_location
 		timeStart = managedInstallsTWStart()
 		timeEnd = managedInstallsTWEnd()
 	except:
 # If all else fails, use default values (1am & 5am)
-		print "Unable to find Munki time window preferences"
-		print "Using time window defaults (1am & 5am)"
+		print "MunkiTimeWindow: Unable to find Munki time window preferences"
+		print "MunkiTimeWindow: Using time window defaults (1am & 5am)"
 		timeStart = '1:00AM'
 		timeEnd = '5:00AM'
 
@@ -99,8 +137,8 @@ try:
 	timeNowConverted = datetime.strptime(friendlyTimeNow, "%I:%M%p")
 # If there is an issue with time conversions (typically due to malformed time pref), use defaults (1am & 5am)
 except BaseException as e:
-	print "ERROR: ",e
-	print "Using time window defaults (1am & 5am)"
+	print "MunkiTimeWindow: ERROR: ",e
+	print "MunkiTimeWindow: Using time window defaults (1am & 5am)"
 	timeStart = '1:00AM'
 	timeEnd = '5:00AM'
 	timeStartConverted = datetime.strptime(timeStart, "%I:%M%p")
@@ -112,15 +150,15 @@ WithinWindow=(isNowInTimeWindow(timeStartConverted, timeEndConverted, timeNowCon
 
 # Print outputs
 print
-print 'Time Window Start Time:',timeStart
-print 'Time Window End Time:',timeEnd
-print 'Current Time: ',friendlyTimeNow
-print 'Within specified time window?: ',WithinWindow
+print 'MunkiTimeWindow: Time Window Start Time:',timeStart
+print 'MunkiTimeWindow: Time Window End Time:',timeEnd
+print 'MunkiTimeWindow: Current Time: ',friendlyTimeNow
+print 'MunkiTimeWindow: Within specified time window?: ',WithinWindow
 
 # Exit script depending on value of boolean
 if WithinWindow:
-    print "Currently within time window; allowing Munki to continue run"
+    print "MunkiTimeWindow: Currently within time window; allowing Munki to continue run"
     sys.exit(0)
 else:
-    print "Currently NOT within time window; stopping Munki run"
+    print "MunkiTimeWindow: Currently NOT within time window; stopping Munki run"
     sys.exit(1)
