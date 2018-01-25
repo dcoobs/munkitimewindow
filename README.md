@@ -2,8 +2,8 @@
 A preflight script for setting a time window in which [Munki](https://github.com/munki/munki) will run.  
 
 Munki Time Window will look for preferences in the following order:  
-	-MCX/Configuration Profiles  
-	-Set in /Library/Preferences/ManagedInstalls.plist  
+- MCX/Configuration Profiles  
+- Set in /Library/Preferences/ManagedInstalls.plist  
 	
 MunkiTimeWindow.py can be set as a preflight script for either Munki (placed in /usr/local/munki/ and renamed to preflight) or [munkireport-php](https://github.com/munkireport/munkireport-php) (placed in /usr/local/munki/preflight_abort.d).
 
