@@ -14,6 +14,8 @@
 						<dict>
 							<key>mcx_preference_settings</key>
 							<dict>
+								<key>TimeWindowAllowManual</key>
+								<true/>
 								<key>TimeWindowEnd</key>
 								<string>4:00AM</string>
 								<key>TimeWindowStart</key>
@@ -26,11 +28,11 @@
 			<key>PayloadEnabled</key>
 			<true/>
 			<key>PayloadIdentifier</key>
-			<string>MCXToProfile.e0df8184-dcdd-4daf-85f5-6af677ff811f.alacarte.customsettings.cc6b8216-b51f-4138-b261-3c665d0cbf9b</string>
+			<string>MCXToProfile.0b39ce01-77b2-4f17-854a-92ea4d22bbb6.alacarte.customsettings.89e3682c-2ee3-49d0-9aba-7faf9ab41c0d</string>
 			<key>PayloadType</key>
 			<string>com.apple.ManagedClient.preferences</string>
 			<key>PayloadUUID</key>
-			<string>cc6b8216-b51f-4138-b261-3c665d0cbf9b</string>
+			<string>89e3682c-2ee3-49d0-9aba-7faf9ab41c0d</string>
 			<key>PayloadVersion</key>
 			<integer>1</integer>
 		</dict>
@@ -52,7 +54,7 @@ org.example.my.MunkiTimeWindow
 	<key>PayloadType</key>
 	<string>Configuration</string>
 	<key>PayloadUUID</key>
-	<string>e0df8184-dcdd-4daf-85f5-6af677ff811f</string>
+	<string>0b39ce01-77b2-4f17-854a-92ea4d22bbb6</string>
 	<key>PayloadVersion</key>
 	<integer>1</integer>
 </dict>
