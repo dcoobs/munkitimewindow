@@ -93,9 +93,19 @@ except:
 		timeEnd = '5:00AM'
 
 # Convert time window preferences to format that can be used for calculations
-timeStartConverted = datetime.strptime(timeStart, "%I:%M%p")
-timeEndConverted = datetime.strptime(timeEnd, "%I:%M%p")
-timeNowConverted = datetime.strptime(friendlyTimeNow, "%I:%M%p")
+try:
+	timeStartConverted = datetime.strptime(timeStart, "%I:%M%p")
+	timeEndConverted = datetime.strptime(timeEnd, "%I:%M%p")
+	timeNowConverted = datetime.strptime(friendlyTimeNow, "%I:%M%p")
+# If there is an issue with time conversions (typically due to malformed time pref), use defaults (1am & 5am)
+except BaseException as e:
+	print e
+	print "Using time window defaults (1am & 5am)"
+	timeStart = '1:00AM'
+	timeEnd = '5:00AM'
+	timeStartConverted = datetime.strptime(timeStart, "%I:%M%p")
+	timeEndConverted = datetime.strptime(timeEnd, "%I:%M%p")
+	timeNowConverted = datetime.strptime(friendlyTimeNow, "%I:%M%p")
 
 # Calculate boolean of whether or not within time window
 WithinWindow=(isNowInTimeWindow(timeStartConverted, timeEndConverted, timeNowConverted))
