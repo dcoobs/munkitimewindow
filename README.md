@@ -16,7 +16,7 @@ A sample command, feeding it a .plist that contains the time window preferences:
 ```
 ./mcxToProfile.py --plist /path/to/org.example.my.MunkiTimeWindow.plist --identifier MunkiTimeWindow --manage Always --organization "My Awesome Company"
 ```
-Note that the identifier corresponds to the variable *BUNDLE_ID* in MunkiTimeWindow.py.
+Note that the name of the .plist corresponds to the variable *BUNDLE_ID* in MunkiTimeWindow.py. So for the example above, BUNDLE_ID should be set to 'org.example.my.MunkiTimeWindow'.
 
 See MunkiTimeWindow.mobileconfig for an example of a generated mobileconfig file.  
 
