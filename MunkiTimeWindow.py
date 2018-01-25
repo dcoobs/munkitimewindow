@@ -99,7 +99,7 @@ try:
 	timeNowConverted = datetime.strptime(friendlyTimeNow, "%I:%M%p")
 # If there is an issue with time conversions (typically due to malformed time pref), use defaults (1am & 5am)
 except BaseException as e:
-	print e
+	print "ERROR: ",e
 	print "Using time window defaults (1am & 5am)"
 	timeStart = '1:00AM'
 	timeEnd = '5:00AM'
