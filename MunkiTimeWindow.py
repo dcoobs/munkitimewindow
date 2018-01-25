@@ -20,12 +20,14 @@ munkitimewindow
 
 """
 This script is designed to work as a preflight script for Munki (in which case it needs to be renamed to preflight)
-or as a preflight_abort.d script for MunkiReport. The script will get the current runtype passed from Munki, try to load the TimeWindowAllowManual
-variable from either an MCX profile or from /Library/Preferences/ManagedInstalls.plist. If the job is started by a user and TimeWindowAllowManual
-is set to True, the script will exit and allow Munki to continue. If there is an issue loading the TimeWindowAllowManual variable, it defaults to True.
-If the job is a scheduled run started automatically by Munki, the script will get the current time and attempt to load the time window preferences, again, from either a MCX profile or from
-/Library/Preferences/ManagedInstalls.plist. If there is an issue loading the preferences using either MCX or ManagedInstalls.plist, it uses 1am and 5am as the defaults.
-It will then check whether it is within the set time window. If it is not within the time window, it will abort the Munki run.
+or as a preflight_abort.d script for MunkiReport. The script will get the current runtype passed from Munki, try to load the
+TimeWindowAllowManual variable from either an MCX profile or from /Library/Preferences/ManagedInstalls.plist. If the job is
+started by a user and TimeWindowAllowManual is set to True, the script will exit and allow Munki to continue. If there is an
+issue loading the TimeWindowAllowManual variable, it defaults to True. If the job is a scheduled run started automatically
+by Munki, the script will get the current time and attempt to load the time window preferences, again, from either a
+MCX profile or from /Library/Preferences/ManagedInstalls.plist. If there is an issue loading the preferences using either MCX
+or ManagedInstalls.plist, it uses 1am and 5am as the defaults.It will then check whether it is within the set time window.
+If it is not within the time window, it will abort the Munki run.
 """
 
 ### Set Munki preference file location & MCX bundle ID variables ###
