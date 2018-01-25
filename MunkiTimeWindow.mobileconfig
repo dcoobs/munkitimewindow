@@ -7,7 +7,7 @@
 		<dict>
 			<key>PayloadContent</key>
 			<dict>
-				<key>ManagedInstalls</key>
+				<key>org.example.my.MunkiTimeWindow</key>
 				<dict>
 					<key>Forced</key>
 					<array>
@@ -15,9 +15,9 @@
 							<key>mcx_preference_settings</key>
 							<dict>
 								<key>TimeWindowEnd</key>
-								<string>5:00PM</string>
+								<string>4:00AM</string>
 								<key>TimeWindowStart</key>
-								<string>4:55PM</string>
+								<string>9:00PM</string>
 							</dict>
 						</dict>
 					</array>
@@ -26,25 +26,25 @@
 			<key>PayloadEnabled</key>
 			<true/>
 			<key>PayloadIdentifier</key>
-			<string>MCXToProfile.a408a7c9-d9cd-4cca-87aa-790b1a644701.alacarte.customsettings.ddd4b94b-f9ac-481f-95c9-042c4dcda35f</string>
+			<string>MCXToProfile.e6cce72c-dee5-4387-b44f-fbc5ff97eeab.alacarte.customsettings.0cf09639-e09c-4a50-bab2-7d0e6f6837ad</string>
 			<key>PayloadType</key>
 			<string>com.apple.ManagedClient.preferences</string>
 			<key>PayloadUUID</key>
-			<string>ddd4b94b-f9ac-481f-95c9-042c4dcda35f</string>
+			<string>0cf09639-e09c-4a50-bab2-7d0e6f6837ad</string>
 			<key>PayloadVersion</key>
 			<integer>1</integer>
 		</dict>
 	</array>
 	<key>PayloadDescription</key>
 	<string>Included custom settings:
-ManagedInstalls
+org.example.my.MunkiTimeWindow
 </string>
 	<key>PayloadDisplayName</key>
-	<string>MCXToProfile: ManagedInstalls</string>
+	<string>MCXToProfile: org.example.my.MunkiTimeWindow</string>
 	<key>PayloadIdentifier</key>
-	<string>edu.illinois.techservices.eps.MunkiTimeWindow.plist</string>
+	<string>MunkiTimeWindow</string>
 	<key>PayloadOrganization</key>
-	<string>University of Illinois</string>
+	<string>My Awesome Company</string>
 	<key>PayloadRemovalDisallowed</key>
 	<true/>
 	<key>PayloadScope</key>
@@ -52,7 +52,7 @@ ManagedInstalls
 	<key>PayloadType</key>
 	<string>Configuration</string>
 	<key>PayloadUUID</key>
-	<string>a408a7c9-d9cd-4cca-87aa-790b1a644701</string>
+	<string>e6cce72c-dee5-4387-b44f-fbc5ff97eeab</string>
 	<key>PayloadVersion</key>
 	<integer>1</integer>
 </dict>
