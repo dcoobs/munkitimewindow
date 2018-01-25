@@ -9,6 +9,14 @@ MunkiTimeWindow.py can be set as a preflight script for either Munki (placed in 
 
 Note that munkireport-php will overwrite the Munki preflight script upon install so if you intend to use munkireport-php, it's recommended to install munkireport-php before Munki Time Window.
 
+### Keys
+Munki Time Window has three preference keys  
+| Key | Type | Default | Description |
+| --- | -------- | ------- | ----------- |
+| TimeWindowStart | string | 1:00AM | Time at which Munki Time Window will begin allowing Munki to run |
+| TimeWindowEnd | string | 5:00AM | Time at which Munki Time Window will begin preventing Munki from running |
+| TimeWindowAllowManual | boolean | True | If true, users will be able to run Munki manually (both MSC and from Terminal |
+
 ### MCX/Configuration Profiles
 Tim Sutton has written a handy, command-line utility ([mcxToProfile](https://github.com/timsutton/mcxToProfile)) to create "Custom Settings" Configuration Profiles.
 
@@ -27,6 +35,8 @@ If you're setting Munki Time Window preferences using a plist, they should be se
 <string>2:30AM</string>
 <key>TimeWindowEnd</key>
 <string>7:30AM</string>
+<key>TimeWindowAllowManual</key>
+<string>True</string>
 ```
   
 Another plist file can be used in place of ManagedInstalls.plist by modifying the variable *munki_prefs_location* in MunkiTimeWindow.py.
