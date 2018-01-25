@@ -32,12 +32,12 @@ See MunkiTimeWindow.mobileconfig for an example of a generated mobileconfig file
 ### Preferences .plist
 If you're setting Munki Time Window preferences using a plist, they should be set in the Munki preferences file (/Library/Preferences/ManagedInstalls.plist) as follows:
 ```
+<key>TimeWindowAllowManual</key>
+<True/>
 <key>TimeWindowStart</key>
 <string>2:30AM</string>
 <key>TimeWindowEnd</key>
 <string>7:30AM</string>
-<key>TimeWindowAllowManual</key>
-<string>True</string>
 ```
   
 Another plist file can be used in place of ManagedInstalls.plist by modifying the variable *munki_prefs_location* in MunkiTimeWindow.py.
