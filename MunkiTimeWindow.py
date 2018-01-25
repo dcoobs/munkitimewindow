@@ -32,7 +32,7 @@ If it is not within the time window, it will abort the Munki run.
 
 ### Set Munki preference file location & MCX bundle ID variables ###
 munki_prefs_location='/Library/Preferences/ManagedInstalls.plist'
-BUNDLE_ID = u'edu.illinois.techservices.eps.MunkiTimeWindow'
+BUNDLE_ID = u'org.example.my.MunkiTimeWindow'
 
 # Import modules
 import sys
