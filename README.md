@@ -14,7 +14,7 @@ Tim Sutton has written a handy, command-line utility ([mcxToProfile](https://git
 
 A sample command, feeding it a .plist that contains the time window preferences:
 ```
-./mcxToProfile.py --plist /path/to/MunkiTimeWindow.plist --identifier org.example.my.MunkiTimeWindow.plist --manage Always --organization “My Awesome Company” --output MunkiTimeWindow.mobileconfig
+./mcxToProfile.py --plist /path/to/org.example.my.MunkiTimeWindow.plist --identifier MunkiTimeWindowPrefs --manage Always --organization “My Awesome Company” --output MunkiTimeWindow.mobileconfig
 ```
 Note that the identifier corresponds to the variable *BUNDLE_ID* in MunkiTimeWindow.py.
 
