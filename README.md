@@ -16,7 +16,7 @@ Munki Time Window has three preference keys:
 | --- | -------- | ------- | ----------- |
 | TimeWindowStart | string | 1:00AM | Time at which Munki Time Window will begin allowing Munki to run |
 | TimeWindowEnd | string | 5:00AM | Time at which Munki Time Window will begin preventing Munki from running |
-| TimeWindowAllowManual | boolean | True | If true, users will be able to run Munki manually outside the set time window (both MSC and from Terminal |
+| TimeWindowAllowManual | boolean | true | If true, users will be able to run Munki manually outside the set time window (both MSC and from Terminal |
 
 ### MCX/Configuration Profiles
 Tim Sutton has written a handy, command-line utility ([mcxToProfile](https://github.com/timsutton/mcxToProfile)) to create "Custom Settings" Configuration Profiles.
@@ -33,7 +33,7 @@ See MunkiTimeWindow.mobileconfig for an example of a generated mobileconfig file
 If you're setting Munki Time Window preferences using a plist, they should be set in the Munki preferences file (/Library/Preferences/ManagedInstalls.plist) as follows:
 ```
 <key>TimeWindowAllowManual</key>
-<True/>
+<true/>
 <key>TimeWindowStart</key>
 <string>2:30AM</string>
 <key>TimeWindowEnd</key>
