@@ -26,11 +26,11 @@
 			<key>PayloadEnabled</key>
 			<true/>
 			<key>PayloadIdentifier</key>
-			<string>MCXToProfile.e6cce72c-dee5-4387-b44f-fbc5ff97eeab.alacarte.customsettings.0cf09639-e09c-4a50-bab2-7d0e6f6837ad</string>
+			<string>MCXToProfile.e0df8184-dcdd-4daf-85f5-6af677ff811f.alacarte.customsettings.cc6b8216-b51f-4138-b261-3c665d0cbf9b</string>
 			<key>PayloadType</key>
 			<string>com.apple.ManagedClient.preferences</string>
 			<key>PayloadUUID</key>
-			<string>0cf09639-e09c-4a50-bab2-7d0e6f6837ad</string>
+			<string>cc6b8216-b51f-4138-b261-3c665d0cbf9b</string>
 			<key>PayloadVersion</key>
 			<integer>1</integer>
 		</dict>
@@ -52,7 +52,7 @@ org.example.my.MunkiTimeWindow
 	<key>PayloadType</key>
 	<string>Configuration</string>
 	<key>PayloadUUID</key>
-	<string>e6cce72c-dee5-4387-b44f-fbc5ff97eeab</string>
+	<string>e0df8184-dcdd-4daf-85f5-6af677ff811f</string>
 	<key>PayloadVersion</key>
 	<integer>1</integer>
 </dict>
