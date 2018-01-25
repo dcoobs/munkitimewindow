@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>TimeWindowAllowManual</key>
-	<True/>
+	<true/>
 	<key>TimeWindowStart</key>
 	<string>9:00PM</string>
 	<key>TimeWindowEnd</key>
