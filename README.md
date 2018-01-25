@@ -1,5 +1,5 @@
 # munkitimewindow
-Preflight script for setting a time window in which [Munki](https://github.com/munki/munki) will run.  
+A preflight script for setting a time window in which [Munki](https://github.com/munki/munki) will run.  
 
 Munki Time Window will look for preferences in the following order:  
 	-MCX/Configuration Profiles  
