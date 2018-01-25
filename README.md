@@ -10,9 +10,15 @@ MunkiTimeWindow.py can be set as a preflight script for either Munki (placed in 
 Note that munkireport-php will overwrite the Munki preflight script upon install so if you intend to use munkireport-php, it's recommended to install munkireport-php before Munki Time Window.
 
 ### MCX/Configuration Profiles
-Tim Sutton has written a command-line utility ([mcxToProfile](https://github.com/timsutton/mcxToProfile)) to create "Custom Settings" Configuration Profiles.
+Tim Sutton has written a handy, command-line utility ([mcxToProfile](https://github.com/timsutton/mcxToProfile)) to create "Custom Settings" Configuration Profiles.
 
-See MunkiTimeWindow.mobileconfig for an example mobileconfig file.  
+A sample command, feeding it a .plist that contains the time window preferences:
+```
+./mcxToProfile.py --plist /path/to/MunkiTimeWindow.plist --identifier my.orgs.MunkiTimeWindow.prefs.plist edu.illinois.techservices.eps.MunkiTimeWindow.plist --manage Often --organization "My Awesome Org" --output MunkiTimeWindow.mobileconfig
+```
+Note that the identifier corresponds to the variable *BUNDLE_ID* in MunkiTimeWindow.py.
+
+See MunkiTimeWindow.mobileconfig for an example of a generated mobileconfig file.  
 
 ### Preferences .plist
 If you're setting Munki Time Window preferences using a plist, they should be set in the Munki preferences file (/Library/Preferences/ManagedInstalls.plist) as follows:
