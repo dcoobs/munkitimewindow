@@ -28,7 +28,7 @@ It will then check whether it is within the set time window. If it is not within
 
 ### Set Munki preference file location & MCX bundle ID variables ###
 munki_prefs_location='/Library/Preferences/ManagedInstalls.plist'
-BUNDLE_ID = u'MunkiTimeWindow'
+BUNDLE_ID = u'org.example.my.MunkiTimeWindow''
 
 # Import modules
 import sys
