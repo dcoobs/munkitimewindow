@@ -48,7 +48,7 @@ from munkilib import FoundationPlist
 
 ### Set Munki preference file location & MCX bundle ID variables ###
 munki_prefs_location='/Library/Preferences/ManagedInstalls.plist'
-BUNDLE_ID = u'edu.illinois.techservices.eps.MunkiTimeWindow'
+BUNDLE_ID = u'org.example.my.MunkiTimeWindow'
 DEFAULT_PREFS = {
     'TimeWindowAllowManual': True,
     'TimeWindowStart': '1:00AM',
