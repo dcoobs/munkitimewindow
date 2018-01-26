@@ -40,4 +40,4 @@ If you're setting Munki Time Window preferences using a plist, they should be se
 <string>7:30AM</string>
 ```
   
-Another plist file can be used in place of ManagedInstalls.plist by modifying the variable *munki_prefs_location* in MunkiTimeWindow.py.
+Another plist file can be used in place of ManagedInstalls.plist by modifying the variable *munki_prefs_location* in MunkiTimeWindow.py to point to the location of the other plist.
