@@ -1,5 +1,7 @@
 # munkitimewindow
-A preflight script for setting a time window in which [Munki](https://github.com/munki/munki) will run. It consists of a preflight script and a file containing preferences to set the time window.  
+A preflight script for setting a time window in which [Munki](https://github.com/munki/munki) will run. It consists of a preflight script and a file containing preferences to set the time window. 
+
+![](https://github.com/DCoobs/munkitimewindow/blob/master/munkitimewindow.png)
 
 Munki Time Window will look for preferences in the following order and locations:  
 - MCX/Configuration Profiles  
@@ -44,6 +46,3 @@ Another plist file can be used in place of ManagedInstalls.plist by modifying th
 
 ### Get help
 If you have additional questions, or need even more help getting started, post a question to [munkitimewindow](https://groups.google.com/group/munkitimewindow). Please don't post support questions as comments on wiki documentation pages, or as GitHub code issues.
-
-![](https://github.com/DCoobs/munkitimewindow/blob/master/munkitimewindow.png)
-
