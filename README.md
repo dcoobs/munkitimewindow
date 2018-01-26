@@ -42,4 +42,6 @@ If you're setting Munki Time Window preferences using a plist, they should be se
   
 Another plist file can be used in place of ManagedInstalls.plist by modifying the variable *munki_prefs_location* in MunkiTimeWindow.py to point to the location of the other plist.
 
+### Get help
+If you have additional questions, or need even more help getting started, post a question to [munkitimewindow](https://groups.google.com/group/munkitimewindow). Please don't post support questions as comments on wiki documentation pages, or as GitHub code issues.
 ![](https://github.com/DCoobs/munkitimewindow/blob/master/munkitimewindow.png)
