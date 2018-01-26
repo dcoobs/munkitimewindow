@@ -14,9 +14,9 @@ Munki Time Window has three preference keys:
 
 | Key | Type | Default | Description |
 | --- | -------- | ------- | ----------- |
+| TimeWindowAllowManual | boolean | true | If true, users will be able to run Munki manually outside the set time window (both MSC and from Terminal |
 | TimeWindowStart | string | 1:00AM | Time at which Munki Time Window will begin allowing Munki to run |
 | TimeWindowEnd | string | 5:00AM | Time at which Munki Time Window will begin preventing Munki from running |
-| TimeWindowAllowManual | boolean | true | If true, users will be able to run Munki manually outside the set time window (both MSC and from Terminal |
 
 ### MCX/Configuration Profiles
 Tim Sutton has written a handy, command-line utility ([mcxToProfile](https://github.com/timsutton/mcxToProfile)) to create "Custom Settings" Configuration Profiles.
