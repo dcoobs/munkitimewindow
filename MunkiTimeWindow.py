@@ -148,7 +148,7 @@ print 'MunkiTimeWindow: Time Window End Time:',timeEnd
 print 'MunkiTimeWindow: Current Time: ',friendlyTimeNow
 print 'MunkiTimeWindow: Within specified time window?: ',WithinWindow
 
-# Exit script depending on value of boolean
+# Abort Munki run depending on value of boolean
 if WithinWindow:
     print "MunkiTimeWindow: Currently within time window; allowing Munki to continue run"
     sys.exit(0)
