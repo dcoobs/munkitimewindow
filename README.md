@@ -1,15 +1,18 @@
 # munkitimewindow <img src="https://github.com/DCoobs/munkitimewindow/blob/master/munkitimewindow.png" width="100" height="70" />
-A preflight script for setting a time window in which [Munki](https://github.com/munki/munki) will run. It consists of a preflight script and a file containing preferences to set the time window. 
+A preflight script for setting a time window in which [Munki](https://github.com/munki/munki) will run.  
 
 ![](https://github.com/DCoobs/munkitimewindow/blob/master/munkitimewindowscreen.png)
+
+Munki Time Window consists of a preflight script and a file containing preferences to set the time window.
 
 Munki Time Window will look for preferences in the following order and locations:  
 - MCX/Configuration Profiles  
 - Set in /Library/Preferences/ManagedInstalls.plist (or another plist that you specify)   
-	
-MunkiTimeWindow.py can be set as a preflight script for either Munki (placed in /usr/local/munki/ and renamed to preflight) or [munkireport-php](https://github.com/munkireport/munkireport-php) (placed in /usr/local/munki/preflight_abort.d).
 
-Note that munkireport-php will overwrite the Munki preflight script upon install so if you intend to use munkireport-php, it's recommended to install munkireport-php before Munki Time Window.
+### Preflight Script
+MunkiTimeWindow.py can be set as a preflight script for either Munki (placed in /usr/local/munki/ and renamed to preflight) or for [munkireport-php](https://github.com/munkireport/munkireport-php) (placed in /usr/local/munki/preflight_abort.d).
+
+Note that munkireport-php will overwrite the Munki preflight script upon install so if you intend to use munkireport-php, it's recommended to install munkireport-php before installing Munki Time Window.
 
 ### Keys
 Munki Time Window has three preference keys:
