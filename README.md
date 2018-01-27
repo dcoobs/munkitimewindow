@@ -35,7 +35,7 @@ Note that the name of the .plist corresponds to the variable *BUNDLE_ID* in Munk
 See *[org.example.my.MunkiTimeWindow.plist](https://github.com/DCoobs/munkitimewindow/blob/master/org.example.my.MunkiTimeWindow.plist)* for a sample plist to use with mcxToProfile and *[MunkiTimeWindow.mobileconfig](https://github.com/DCoobs/munkitimewindow/blob/master/MunkiTimeWindow.mobileconfig)* for an example of the resulting mobileconfig file.  
 
 ### Preferences .plist
-If you're setting Munki Time Window preferences using a plist, they should be set in the Munki preferences file (/Library/Preferences/ManagedInstalls.plist) as follows:
+If you're setting Munki Time Window preferences using a plist, the default plist is the Munki preferences file (/Library/Preferences/ManagedInstalls.plist). The preference keys should be set as follows:
 ```
 <key>TimeWindowAllowManual</key>
 <true/>
