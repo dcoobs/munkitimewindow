@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Script that will detect whether or not  munkireport-php is installed and install Munki Time Window accordingly
 # Intended to be used with munkipkg (https://github.com/munki/munki-pkg) as a pkg postinstall script
 # Assumes that MunkiTimeWindow.py is a payload that installs to /usr/local/munki
 
