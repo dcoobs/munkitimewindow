@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Intended to be used with munkipkg (https://github.com/munki/munki-pkg) as a pkg postinstall script
+# Assumes that MunkiTimeWindow.py is a payload that installs to /usr/local/munki
+
 # If /usr/local/munki/preflight_abort.d directory exists (MunkiReport installed)
 if [ -d /usr/local/munki/preflight_abort.d/ ]
 then
