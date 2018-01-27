@@ -37,9 +37,9 @@ If you're setting Munki Time Window preferences using a plist, they should be se
 <key>TimeWindowAllowManual</key>
 <true/>
 <key>TimeWindowStart</key>
-<string>2:30AM</string>
+<string>10:30PM</string>
 <key>TimeWindowEnd</key>
-<string>7:30AM</string>
+<string>7:00AM</string>
 ```
   
 Another plist file can be used in place of ManagedInstalls.plist by modifying the variable *munki_prefs_location* in MunkiTimeWindow.py to point to the location of the other plist.
