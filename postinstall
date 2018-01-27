@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# If /usr/local/munki/preflight_abort.d directory exists (MunkiReport installed)
+if [ -d /usr/local/munki/preflight_abort.d/ ]
+then
+# Move MunkiTimeWindow.py inside preflight_abort.d
+	mv /usr/local/munki/MunkiTimeWindow.py /usr/local/munki/preflight_abort.d/MunkiTimeWindow.py
+else
+# Rename MunkiTimeWindow.py to preflight (so that Munki will use it directly)
+	mv /usr/local/munki/MunkiTimeWindow.py /usr/local/munki/preflight
+fi
