@@ -1,4 +1,4 @@
-# munkitimewindow <img src="https://github.com/DCoobs/munkitimewindow/blob/master/icon.png" width="131" height="131" />
+# munkitimewindow <img src="https://github.com/DCoobs/munkitimewindow/blob/master/icon.png?raw=true" width="131" height="131" />
 A preflight script for setting a time window in which [Munki](https://github.com/munki/munki) will run.  
 
 ![](https://github.com/DCoobs/munkitimewindow/blob/master/munkitimewindowscreen.png)
