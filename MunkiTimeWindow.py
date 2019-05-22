@@ -70,39 +70,39 @@ def isNowInTimeWindow(startTime, endTime, nowTime):
 def getPrefs(preferenceName, bundleid=''):
 # Attempt to get pref from MCX
 	try:
-		print "MunkiTimeWindow: Attempting to load",preferenceName,"from MCX"
+		print('MunkiTimeWindow: Attempting to load %s from MCX' % preferenceName)
 		pref = CFPreferencesCopyAppValue(preferenceName, bundleid)
 		if pref == None:
-			print "MunkiTimeWindow: No MCX/mobileconfig found for",preferenceName
-			print "MunkiTimeWindow: Attempting to load preference from",munki_prefs_location
+			print('MunkiTimeWindow: No MCX/mobileconfig found for %s' % preferenceName)
+			print('MunkiTimeWindow: Attempting to load preference from %s' % munki_prefs_location)
 			try:
 				pref = munki_prefs[preferenceName]
 				
 			except:
-				print "MunkiTimeWindow: Error loading",preferenceName,"from",munki_prefs_location
-				print "MunkiTimeWindow: Unable to obtain",preferenceName,"preference"
+				print('MunkiTimeWindow: Error loading %s from %s' % (preferenceName, munki_prefs_location))
+				print('MunkiTimeWindow: Unable to obtain %s preference' % preferenceName)
 				pref = DEFAULT_PREFS.get(preferenceName)
-				print "MunkiTimeWindow: Using default value for",preferenceName,"(",pref,")"
-		print "MunkiTimeWindow:",preferenceName,"is",pref
+				print('MunkiTimeWindow: Using default value for %s (%s)' % (preferenceName, pref))
+		print('MunkiTimeWindow: %s is %s' % (preferenceName, pref))
 		return pref
 	except:
-		print "MunkiTimeWindow: Error loading",preferenceName,"from MCX"
-		print "MunkiTimeWindow: Attempting to load preference from",munki_prefs_location
+		print('MunkiTimeWindow: Error loading %s from MCX' % preferenceName)
+		print('MunkiTimeWindow: Attempting to load preference from %s' % munki_prefs_location)
 		try:
 			pref = munki_prefs[preferenceName]
 		except:
-			print "MunkiTimeWindow: Error loading",preferenceName,"from",munki_prefs_location
-			print "MunkiTimeWindow: Unable to obtain",preferenceName," preference"
+			print('MunkiTimeWindow: Error loading %s from %s' % (preferenceName, munki_prefs_location))
+			print('MunkiTimeWindow: Unable to obtain %s preference' % preferenceName)
 			pref = DEFAULT_PREFS.get(preferenceName)
-			print "MunkiTimeWindow: Using default value for",preferenceName,"(",pref,")"
+			print('MunkiTimeWindow: Using default value for %s (%s)' % (preferenceName, pref))
 
 #get runtype argument from Munki
 if (len(sys.argv) > 1):
 	runtype = sys.argv[1]
 else:
 	runtype = 'custom'
-	print
-print "MunkiTimeWindow: Runtype=",runtype
+	print()
+print('MunkiTimeWindow: Runtype= %s' % runtype)
 
 # Obtain TimeWindowAllowManual preference
 allowManualRun = getPrefs('TimeWindowAllowManual', BUNDLE_ID)
@@ -110,7 +110,7 @@ allowManualRun = getPrefs('TimeWindowAllowManual', BUNDLE_ID)
 # If runtype is anything other than auto (typically a manual run), allow Munki run to continue
 if allowManualRun:
 	if runtype != 'auto':
-		print "MunkiTimeWindow: Detected manual run. Allowing Munki to continue"
+		print('MunkiTimeWindow: Detected manual run. Allowing Munki to continue')
    		sys.exit(0)
         
 # Get current time
@@ -130,8 +130,8 @@ try:
 	timeNowConverted = datetime.strptime(friendlyTimeNow, "%I:%M%p")
 # If there is an issue with time conversions (typically due to malformed time pref), use defaults
 except BaseException as e:
-	print "MunkiTimeWindow: ERROR: ",e
-	print "MunkiTimeWindow: Using time window defaults"
+	print('MunkiTimeWindow: ERROR: %s' % e)
+	print('MunkiTimeWindow: Using time window defaults')
 	timeStart = DEFAULT_PREFS.get(TimeWindowStart)
 	timeEnd = DEFAULT_PREFS.get(TimeWindowEnd)
 	timeStartConverted = datetime.strptime(timeStart, "%I:%M%p")
@@ -142,16 +142,16 @@ except BaseException as e:
 WithinWindow=(isNowInTimeWindow(timeStartConverted, timeEndConverted, timeNowConverted))
 
 # Print final outputs
-print
-print 'MunkiTimeWindow: Time Window Start Time:',timeStart
-print 'MunkiTimeWindow: Time Window End Time:',timeEnd
-print 'MunkiTimeWindow: Current Time: ',friendlyTimeNow
-print 'MunkiTimeWindow: Within specified time window?: ',WithinWindow
+print()
+print('MunkiTimeWindow: Time Window Start Time: %s' % timeStart)
+print('MunkiTimeWindow: Time Window End Time: %s' % timeEnd)
+print('MunkiTimeWindow: Current Time: %s' % friendlyTimeNow)
+print('MunkiTimeWindow: Within specified time window?: %s' % WithinWindow)
 
 # Abort Munki run depending on value of boolean
 if WithinWindow:
-    print "MunkiTimeWindow: Currently within time window; allowing Munki to continue run"
+    print('MunkiTimeWindow: Currently within time window; allowing Munki to continue run')
     sys.exit(0)
 else:
-    print "MunkiTimeWindow: Currently NOT within time window; stopping Munki run"
+    print('MunkiTimeWindow: Currently NOT within time window; stopping Munki run')
     sys.exit(1)
