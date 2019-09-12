@@ -101,7 +101,7 @@ if (len(sys.argv) > 1):
 	runtype = sys.argv[1]
 else:
 	runtype = 'custom'
-	print()
+	print('')
 print('MunkiTimeWindow: Runtype= %s' % runtype)
 
 # Obtain TimeWindowAllowManual preference
@@ -142,7 +142,7 @@ except BaseException as e:
 WithinWindow=(isNowInTimeWindow(timeStartConverted, timeEndConverted, timeNowConverted))
 
 # Print final outputs
-print()
+print('')
 print('MunkiTimeWindow: Time Window Start Time: %s' % timeStart)
 print('MunkiTimeWindow: Time Window End Time: %s' % timeEnd)
 print('MunkiTimeWindow: Current Time: %s' % friendlyTimeNow)
