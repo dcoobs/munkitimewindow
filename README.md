@@ -9,6 +9,8 @@ Munki Time Window will look for preferences in the following order and locations
 - MCX/Configuration Profiles  
 - /Library/Preferences/ManagedInstalls.plist (or another plist that you specify)   
 
+***Minimum Munki version:*** With the switch to */usr/local/munki/munki-python* (due to the removal of Python 2.7 in macOS 12.3), the minimum supported version of Munki is 5.1.1.
+
 ### Preflight Script
 MunkiTimeWindow.py can be set as a preflight script for either Munki (placed in /usr/local/munki/ and renamed to preflight) or for [munkireport-php](https://github.com/munkireport/munkireport-php) (placed in /usr/local/munki/preflight_abort.d).
 
