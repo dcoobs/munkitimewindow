@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/local/munki/munki-python
 # encoding: utf-8
 #
 # Copyright 2018-2019 Drew Coobs.
@@ -111,7 +111,7 @@ allowManualRun = getPrefs('TimeWindowAllowManual', BUNDLE_ID)
 if allowManualRun:
 	if runtype != 'auto':
 		print('MunkiTimeWindow: Detected manual run. Allowing Munki to continue')
-   		sys.exit(0)
+		sys.exit(0)
         
 # Get current time
 timeNow = datetime.now()
